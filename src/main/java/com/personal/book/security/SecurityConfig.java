@@ -1,22 +1,28 @@
-/*
- * This code is part of the book-social-network project.
- * Use of this code anywhere without the project owner's (https://github.com/Pratik-Zimbre) permission is prohibited.
- */
 package com.personal.book.security;
+
+/*-
+ * #%L
+ * book-network-api
+ * %%
+ * Copyright (C) 2024 Book Social Network
+ * %%
+ * Book Social Network, Inc. and / or its subsidiaries - All Rights Reserved worldwide. 
+ * This document is protected under the trade secret and copyright laws as the property of Book Social Network, Inc. and / or its subsidiaries.
+ * Copying, reproduction or distribution should be limited and only to contributors with a "need to know" to do their job.
+ * Any disclosure of this document to third parties is strictly prohibited.
+ * #L%
+ */
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -25,20 +31,20 @@ import lombok.RequiredArgsConstructor;
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
 
-	private final AuthenticationProvider authenticationProvider;
-	private final JwtFilter jwtAuthFilter;
+	// private final JwtFilter jwtAuthFilter;
+	// private final AuthenticationProvider authenticationProvider;
 
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.cors(Customizer.withDefaults()).csrf(AbstractHttpConfigurer::disable)
+		http.cors(withDefaults()).csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(req -> req
 						.requestMatchers("/auth/**", "/v2/api-docs", "/v3/api-docs", "/v3/api-docs/**",
 								"/swagger-resources", "/swagger-resources/**", "/configuration/ui",
 								"/configuration/security", "/swagger-ui/**", "/webjars/**", "/swagger-ui.html")
 						.permitAll().anyRequest().authenticated())
-				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.authenticationProvider(authenticationProvider)
-				.addFilterBefore((Filter) jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+				.oauth2ResourceServer(auth -> auth
+						.jwt(token -> token.jwtAuthenticationConverter(new KeycloakJwtAuthenticationConverter())));
+
 		return http.build();
 	}
 }

@@ -1,15 +1,3 @@
-com\personal\book\security\JwtService.class
-com\personal\book\entity\BsnUser.class
-com\personal\book\entity\BsnRole.class
 com\personal\book\entity\BsnRole$BsnRoleBuilder.class
-com\personal\book\config\BeansConfig.class
-com\personal\book\entity\BsnToken.class
-com\personal\book\BookNetworkApiApplication.class
-com\personal\book\security\JwtFilter.class
 com\personal\book\entity\BsnToken$BsnTokenBuilder.class
-com\personal\book\repository\BsnUserRepository.class
-com\personal\book\repository\BsnTokenRepository.class
 com\personal\book\entity\BsnUser$BsnUserBuilder.class
-com\personal\book\security\UserDetailsServiceImpl.class
-com\personal\book\security\SecurityConfig.class
-com\personal\book\repository\BsnRoleRepository.class
