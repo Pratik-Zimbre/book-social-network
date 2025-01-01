@@ -1,4 +1,4 @@
-package com.personal.book.common;
+package com.personal.book.entity;
 
 /*-
  * #%L
