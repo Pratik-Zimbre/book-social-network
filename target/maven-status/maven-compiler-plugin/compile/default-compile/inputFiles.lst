@@ -1,15 +1,1 @@
 C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\BookNetworkApiApplication.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\common\BsnBaseEntity.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\config\ApplicationAuditAware.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\config\BeansConfig.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\entity\BsnRole.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\entity\BsnToken.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\entity\BsnUser.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\repository\BsnRoleRepository.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\repository\BsnTokenRepository.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\repository\BsnUserRepository.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\security\JwtFilter.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\security\JwtService.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\security\KeycloakJwtAuthenticationConverter.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\security\SecurityConfig.java
-C:\Projects\workspace\book-social-network\src\main\java\com\personal\book\security\UserDetailsServiceImpl.java
